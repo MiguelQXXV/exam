@@ -1,0 +1,15 @@
+.customer-table_details{
+    width: 100%;
+    margin-block: 1rem;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.customer-table_details td {
+    font-size: 1rem;
+}
+
+.customer-table_details td:last-child {
+    padding: 1rem;
+}

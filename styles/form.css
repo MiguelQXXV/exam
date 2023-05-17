@@ -49,6 +49,8 @@
     color: #FFFFFF;
 }
 
+
+
 @media (max-width: 767px) {
     .form-container .form-submit_container input  {
         width: 100%;

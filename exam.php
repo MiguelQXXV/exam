@@ -22,11 +22,18 @@ add_action('init', 'exam_form_register_post_type');
 
 // Enqueue scripts and localize data for AJAX handling
 function exam_form_enqueue_scripts() {
-    wp_enqueue_style('styles', plugin_dir_url(__FILE__) . 'styles.css');
-    wp_enqueue_script('script', plugin_dir_url(__FILE__) . 'script.js', array('jquery'), '1.0', true);
+    wp_enqueue_style('styles', plugin_dir_url(__FILE__) . 'styles/form.css');
+    wp_enqueue_script('script', plugin_dir_url(__FILE__) . 'scripts/form.js', array('jquery'), '1.0', true);
     wp_localize_script('script', 'customFormAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));
 }
 add_action('wp_enqueue_scripts', 'exam_form_enqueue_scripts');
+
+function custom_form_enqueue_styles() {
+ wp_enqueue_style('custom-table-style', plugin_dir_url(__FILE__) . 'styles/admin.css');
+}
+
+add_action('admin_enqueue_scripts', 'custom_form_enqueue_styles');
+
 
 // Create the shortcode
 function exam_form_shortcode($atts) {
@@ -84,3 +91,4 @@ add_action('wp_ajax_nopriv_exam_form_submit', 'exam_form_ajax_submit');
 
 // Include the custom form submissions page
 require_once(plugin_dir_path(__FILE__) . '/views/tables/admin-customer-table.php');
+require_once(plugin_dir_path(__FILE__) . '/setup.php');
